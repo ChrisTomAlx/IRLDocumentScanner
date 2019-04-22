@@ -326,15 +326,26 @@
          {
              UIImage *image = ([data isKindOfClass:[NSData class]]) ? [UIImage imageWithData:data] : data;
 
-             image = [image imageWithCGImage: image.CGImage
-                            scale:1.0
-                            orientation:UIImageOrientationRight]
-
+///////////////////
+            //  image = [image imageWithCGImage: image.CGImage
+            //                 scale:1.0
+            //                 orientation:UIImageOrientationRight]
+////////////////
              
              TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
              cropViewController.delegate = self;
              cropViewController.aspectRatioPickerButtonHidden = YES;
              cropViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+             
+             if (image.size.width > image.size.height ) // Landscape
+                {
+                    cropViewController.angle = 90;
+                }
+            else   // Portrait
+                {
+
+                }
+             
              [self presentViewController:cropViewController animated:YES completion:nil];
              
          }];
