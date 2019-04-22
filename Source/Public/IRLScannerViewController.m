@@ -66,6 +66,10 @@
 
 #pragma mark - Button delegates
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
+    return UIInterfaceOrientationMaskPortrait; 
+}
+
 -(IBAction)cancelTapped:(id)sender{
     if (self.camera_PrivateDelegate){
         [self.camera_PrivateDelegate didCancelIRLScannerViewController:self];
