@@ -336,7 +336,14 @@
              cropViewController.delegate = self;
              cropViewController.aspectRatioPickerButtonHidden = YES;
              cropViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
- cropViewController.angle = 90;
+ //cropViewController.angle = 90;
+     switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+        //case UIInterfaceOrientationPortrait:            return UIImageOrientationRight;
+        case UIInterfaceOrientationLandscapeLeft:       cropViewController.angle = 90;
+        case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = -90;
+        //case UIInterfaceOrientationPortraitUpsideDown:  return UIImageOrientationLeft;
+        //case UIInterfaceOrientationUnknown:             return UIImageOrientationUp;
+    }
 //              if (image.size.width > image.size.height ) // Landscape
 //                 {
                     
