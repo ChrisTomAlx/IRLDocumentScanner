@@ -66,10 +66,10 @@
 
 #pragma mark - Button delegates
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
-    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-    return interfaceOrientation; 
-}
+// - (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
+//     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+//     return interfaceOrientation; 
+// }
 
 -(IBAction)cancelTapped:(id)sender{
     if (self.camera_PrivateDelegate){
@@ -301,6 +301,12 @@
     imgView.opaque = NO;
     imgView.alpha = 0.0f;
     imgView.transform = CGAffineTransformMakeScale(0.4f, 0.4f);
+
+    ////////////////////////////////////
+    [imageView setAutoresizesSubviews:YES];
+    [imageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [imageView setAutoresizesSubviews:YES];
+    [imageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 
     // Some Feedback to the User
     UIView *white = [[UIView alloc] initWithFrame:self.view.frame];
