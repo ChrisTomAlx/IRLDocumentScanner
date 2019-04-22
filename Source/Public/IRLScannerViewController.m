@@ -123,11 +123,11 @@
 }
 
 /////////////////
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-        return  orientation;
-}
+// - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+// {
+//         UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//         return  orientation;
+// }
 /////////////////
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -325,6 +325,11 @@
         [self.cameraView captureImageWithCompletionHander:^(id data)
          {
              UIImage *image = ([data isKindOfClass:[NSData class]]) ? [UIImage imageWithData:data] : data;
+
+             image = [image imageWithCGImage: image.CGImage
+                            scale:1.0
+                            orientation:UIImageOrientationRight]
+
              
              TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
              cropViewController.delegate = self;
