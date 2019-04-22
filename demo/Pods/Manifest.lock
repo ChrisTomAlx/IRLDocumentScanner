@@ -1,0 +1,22 @@
+PODS:
+  - IRLDocumentScanner (0.3.1):
+    - IRLDocumentScanner/Default (= 0.3.1)
+    - TOCropViewController (~> 2.3)
+  - IRLDocumentScanner/Default (0.3.1):
+    - TOCropViewController (~> 2.3)
+  - TOCropViewController (2.3.4)
+
+DEPENDENCIES:
+  - IRLDocumentScanner (from `..`)
+
+EXTERNAL SOURCES:
+  IRLDocumentScanner:
+    :path: ..
+
+SPEC CHECKSUMS:
+  IRLDocumentScanner: 37606725c316aad3f6f08a94cb357823ec4b142d
+  TOCropViewController: 808c9724904be931dd2de5f97fcccf4cc8f8b03f
+
+PODFILE CHECKSUM: 33215c6da8b5132d7a127b02388901f868b65cd5
+
+COCOAPODS: 1.4.0
