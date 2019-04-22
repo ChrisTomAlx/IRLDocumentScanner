@@ -339,8 +339,8 @@
  //cropViewController.angle = 90;
      switch ([[UIApplication sharedApplication] statusBarOrientation]) {
         //case UIInterfaceOrientationPortrait:            return UIImageOrientationRight;
-        case UIInterfaceOrientationLandscapeLeft:       cropViewController.angle = 90;
-        case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = 0;
+        case UIInterfaceOrientationLandscapeLeft:       cropViewController.angle = 180;
+        case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = -90;
         //case UIInterfaceOrientationPortraitUpsideDown:  return UIImageOrientationLeft;
         //case UIInterfaceOrientationUnknown:             return UIImageOrientationUp;
     }
