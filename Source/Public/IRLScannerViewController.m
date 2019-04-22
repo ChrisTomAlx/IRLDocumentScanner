@@ -336,10 +336,10 @@
              cropViewController.delegate = self;
              cropViewController.aspectRatioPickerButtonHidden = YES;
              cropViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-             
+
              if (image.size.width > image.size.height ) // Landscape
                 {
-                    cropViewController.angle = 90;
+                    cropViewController.angle = 0;
                 }
             else   // Portrait
                 {
