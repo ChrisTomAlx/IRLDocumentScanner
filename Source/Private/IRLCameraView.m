@@ -58,6 +58,7 @@ BOOL rectangleDetectionConfidenceHighEnough(float confidence) {
 }
 
 - (AVCaptureVideoOrientation) videoOrientationFromCurrentDeviceOrientation {
+    NSLog(@"%s","I AM HERE AT videoOrientation!!!");
     switch ([[UIApplication sharedApplication] statusBarOrientation]) {
         case UIInterfaceOrientationPortrait:            return AVCaptureVideoOrientationPortrait;
         case UIInterfaceOrientationLandscapeLeft:       return AVCaptureVideoOrientationLandscapeLeft;
@@ -69,6 +70,7 @@ BOOL rectangleDetectionConfidenceHighEnough(float confidence) {
 }
 
 UIImageOrientation imageOrientationForCurrentDeviceOrientation() {
+    NSLog(@"%s","I AM HERE AT imageOrientationForCurrentDeviceOrientation!!!");
     switch ([[UIApplication sharedApplication] statusBarOrientation]) {
         case UIInterfaceOrientationPortrait:            return UIImageOrientationRight;
         case UIInterfaceOrientationLandscapeLeft:       return UIImageOrientationDown;
