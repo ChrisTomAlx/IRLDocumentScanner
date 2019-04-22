@@ -67,7 +67,7 @@
 #pragma mark - Button delegates
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
-    return UIInterfaceOrientationMaskPortrait; 
+    return UIInterfaceOrientationMaskAll; 
 }
 
 -(IBAction)cancelTapped:(id)sender{
