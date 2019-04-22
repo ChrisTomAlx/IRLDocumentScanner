@@ -303,10 +303,10 @@
     imgView.transform = CGAffineTransformMakeScale(0.4f, 0.4f);
 
     ////////////////////////////////////
-    [imageView setAutoresizesSubviews:YES];
-    [imageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [imageView setAutoresizesSubviews:YES];
-    [imageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [imgView setAutoresizesSubviews:YES];
+    [imgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [imgView setAutoresizesSubviews:YES];
+    [imgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 
     // Some Feedback to the User
     UIView *white = [[UIView alloc] initWithFrame:self.view.frame];
