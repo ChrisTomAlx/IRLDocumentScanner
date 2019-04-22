@@ -67,7 +67,8 @@
 #pragma mark - Button delegates
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
-    return UIInterfaceOrientationMaskAll; 
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    return interfaceOrientation; 
 }
 
 -(IBAction)cancelTapped:(id)sender{
