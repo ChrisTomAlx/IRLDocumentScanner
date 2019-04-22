@@ -66,11 +66,6 @@
 
 #pragma mark - Button delegates
 
-// - (UIInterfaceOrientationMask)supportedInterfaceOrientations { 
-//     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-//     return interfaceOrientation; 
-// }
-
 -(IBAction)cancelTapped:(id)sender{
     if (self.camera_PrivateDelegate){
         [self.camera_PrivateDelegate didCancelIRLScannerViewController:self];
@@ -127,10 +122,23 @@
 
 }
 
+/////////////////
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        return  orientation;
+}
+/////////////////
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self updateTitleLabel:nil];
     
+    /////////////////
+    //UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    //[[UIDevice currentDevice] setValue: [NSNumber numberWithInteger: orientation] forKey:@"orientation"];
+    /////////////////
+
     self.detect_toggle.selected     =  self.cameraView.detectorType       == IRLScannerDetectorTypePerformance;
     self.contrast_type.selected     =  self.cameraView.cameraViewType   == IRLScannerViewTypeBlackAndWhite;
 }
@@ -285,7 +293,7 @@
 }
 
 #pragma mark - CameraVC Capture Image
-
+///////////////////////////
 - (IBAction)captureButton:(id)sender {
     if (self.cancelWasTrigger == YES) return;
     
@@ -301,12 +309,6 @@
     imgView.opaque = NO;
     imgView.alpha = 0.0f;
     imgView.transform = CGAffineTransformMakeScale(0.4f, 0.4f);
-
-    ////////////////////////////////////
-    [imgView setAutoresizesSubviews:YES];
-    [imgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [imgView setAutoresizesSubviews:YES];
-    [imgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 
     // Some Feedback to the User
     UIView *white = [[UIView alloc] initWithFrame:self.view.frame];
