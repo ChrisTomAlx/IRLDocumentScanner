@@ -326,33 +326,26 @@
          {
              UIImage *image = ([data isKindOfClass:[NSData class]]) ? [UIImage imageWithData:data] : data;
 
-///////////////////
-            //  image = [image imageWithCGImage: image.CGImage
-            //                 scale:1.0
-            //                 orientation:UIImageOrientationRight]
-////////////////
+            //  UIImage *imageToDisplay =
+            //     [UIImage imageWithCGImage:[originalImage CGImage]
+            //             scale:[originalImage scale]
+            //             orientation: UIImageOrientationUp];
+            // switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+            //     case UIInterfaceOrientationLandscapeLeft:     
+                            
+            //     //case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = -90;
+            // }
              
              TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
              cropViewController.delegate = self;
              cropViewController.aspectRatioPickerButtonHidden = YES;
              cropViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
- //cropViewController.angle = 90;
-     switch ([[UIApplication sharedApplication] statusBarOrientation]) {
-        //case UIInterfaceOrientationPortrait:            return UIImageOrientationRight;
-        case UIInterfaceOrientationLandscapeLeft:       NSLog(@"%ld",(long)UIInterfaceOrientationLandscapeLeft); NSLog(@"%s","I AM HERE AT videoOrientation!!!"); cropViewController.angle = -270;
-        case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = -90;
-        //case UIInterfaceOrientationPortraitUpsideDown:  return UIImageOrientationLeft;
-        //case UIInterfaceOrientationUnknown:             return UIImageOrientationUp;
-    }
-//              if (image.size.width > image.size.height ) // Landscape
-//                 {
-                    
-//                 }
-//             else   // Portrait
-//                 {
 
-//                 }
-             
+            switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+                case UIInterfaceOrientationLandscapeLeft:  cropViewController.angle = 90; break;
+                case UIInterfaceOrientationLandscapeRight:      cropViewController.angle = -90; break;
+            }
+
              [self presentViewController:cropViewController animated:YES completion:nil];
              
          }];
@@ -385,8 +378,8 @@
 #pragma mark - TOCropViewControllerDelegate
 
 - (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
-    NSLog(@"%ld",(long)angle);
-    NSLog(@"%s","I AM HERE AT videoOrientation!!!"); 
+    // NSLog(@"%ld",(long)angle);
+    // NSLog(@"%s","I AM HERE AT videoOrientation!!!"); 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 *NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.camera_PrivateDelegate pageSnapped:image from:self];
         [self dismissViewControllerAnimated:YES completion:nil];
