@@ -385,6 +385,8 @@
 #pragma mark - TOCropViewControllerDelegate
 
 - (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    NSLog(@"%ld",(long)angle);
+    NSLog(@"%s","I AM HERE AT videoOrientation!!!"); 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 *NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.camera_PrivateDelegate pageSnapped:image from:self];
         [self dismissViewControllerAnimated:YES completion:nil];
